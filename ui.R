@@ -1,8 +1,21 @@
+#-------------------------------------------------------------------------------
+#-----------------------------------LIBRARIES-----------------------------------
+#-------------------------------------------------------------------------------
 library(shiny)
+library(shinyWidgets)
 library(plotly)
 library(cryptotrackr)
 
+#-------------------------------------------------------------------------------
+#----------------------------------UI FUNCTION----------------------------------
+#-------------------------------------------------------------------------------
 ui <- fluidPage(
+  # DEFINE CSS
+  uiOutput("generatedStyle"),
+  materialSwitch(inputId = "style", 
+                 label = "Style", 
+                 status = "danger", 
+                 value = FALSE),
   selectizeInput(
     inputId = "symbol", 
     label = "Select a symbol", 
