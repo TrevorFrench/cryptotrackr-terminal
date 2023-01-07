@@ -5,8 +5,8 @@ dynamic_style <- function(style) {
     rel = "stylesheet",
     type = "text/css",
     href = paste(sheet, ".css", sep = "")
-  ))
-  )}
+  )))
+}
 
 # GENERATE PLOT DYNAMICALLY
 dynamic_plot <- function(style) {

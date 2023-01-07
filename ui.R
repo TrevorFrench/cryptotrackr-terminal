@@ -2,60 +2,76 @@
 #-----------------------------------LIBRARIES-----------------------------------
 #-------------------------------------------------------------------------------
 library(shiny)
-library(shinyWidgets)
 library(plotly)
-library(cryptotrackr)
+library(shinyWidgets)
+library("quantmod") 
 
 #-------------------------------------------------------------------------------
 #----------------------------------UI FUNCTION----------------------------------
 #-------------------------------------------------------------------------------
-shinyUI(fluidPage(
-  # DEFINE CSS
-  uiOutput("generatedStyle"),
-  # PAGE CONTENT
-  fluidRow(
-    column(9, "cryptotrackr-terminal", style='font-size:25px;'),
-    column(3,
-           materialSwitch(inputId = "style",
-                          label = "Style",
-                          status = "danger",
-                          value = FALSE)
-           ),
-    style='padding:5px;'),
-  fluidRow(    
-    column(12, 
-      selectizeInput(
-        inputId = "symbol",
-        label = "Select a symbol",
-        choices = unique(list('btcusdt', 'ethbtc')),
-        selected = "btcusdt",
-        multiple = FALSE
+navbarPage(
+  title = "cryptotrackr + quantmod",
+  selected = "Line Plots",
+  collapsible = TRUE,
+  theme = bslib::bs_theme(),
+  tabPanel(
+    title = "Cryptocurrencies",
+    grid_container(
+      layout = "area1 crypto_plot",
+      row_sizes = "1fr",
+      col_sizes = c(
+        "250px",
+        "1fr"
       ),
-      checkboxInput('rangeSlider', 'Range Slider', value = FALSE, width = NULL)
+      gap_size = "10px",
+      grid_card_plot(area = "crypto_plot"),
+      grid_card(
+        area = "area1",
+        selectInput(
+          inputId = "crypto_symbol",
+          label = "Select a Symbol",
+          choices = list(
+            `BTC - USDT` = "btcusdt",
+            `ETH - BTC` = "ethbtc"
+          )
+        )
+      )
     )
   ),
-  fluidRow(
-    column(12,
-           plotlyOutput(outputId = "p")
-           )
+  tabPanel(
+    title = "Equities",
+    grid_container(
+      layout = "area1 equity_plot",
+      row_sizes = "1fr",
+      col_sizes = c(
+        "0.44fr",
+        "1.56fr"
+      ),
+      gap_size = "10px",
+      grid_card_plot(area = "equity_plot"),
+      grid_card(
+        area = "area1",
+        textInput(
+          inputId = "equity_symbol",
+          label = "Ticker",
+          value = "AMZN"
+        ),
+        textInput(
+          inputId = "equity_from",
+          label = "Beginning Date",
+          value = "2020-01-01"
+        ), 
+        textInput(
+          inputId = "equity_to",
+          label = "Ending Date",
+          value = "2021-03-17"
+        ),
+        textInput(
+          inputId = "equity_periodicity",
+          label = "Periodicity",
+          value = "daily"
+        )
+      )
+    )
   )
-  # navbarPage("cryptotrackr-terminal",
-  #            materialSwitch(inputId = "style", 
-  #                           label = "Style", 
-  #                           status = "danger", 
-  #                           value = FALSE),
-  #            selectizeInput(
-  #              inputId = "symbol", 
-  #              label = "Select a symbol", 
-  #              choices = unique(list('btcusdt', 'ethbtc')), 
-  #              selected = "btcusdt",
-  #              multiple = FALSE
-  #            ),
-  #           checkboxInput('rangeSlider', 'Range Slider', value = FALSE, width = NULL),
-  #           mainPanel(
-  #             plotlyOutput(outputId = "p")
-  #           )
-  # )
-  
-)
 )

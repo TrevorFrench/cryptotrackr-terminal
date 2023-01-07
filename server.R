@@ -2,6 +2,7 @@
 #-----------------------------------LIBRARIES-----------------------------------
 #-------------------------------------------------------------------------------
 library(dplyr)
+library(cryptotrackr)
 
 #-------------------------------------------------------------------------------
 #------------------------------------SOURCES------------------------------------
@@ -12,31 +13,41 @@ source("functions.R")
 #-------------------------------------------------------------------------------
 #--------------------------------SERVER FUNCTION--------------------------------
 #-------------------------------------------------------------------------------
-server <- function(input, output, ...) {
+server <- function(input, output) {
   output$generatedStyle <- renderUI({
     dynamic_style(input$style)
   })
   
-  output$p <- renderPlotly({
+  output$crypto_plot <- renderPlot({
     day_candles <-
       huobi_candles(period = '1day',
                     size = '2000',
-                    symbol = input$symbol)
+                    symbol = input$crypto_symbol)
     
-    fig <-
-      day_candles %>% plot_ly(
-        x = ~ as.POSIXct(id, origin = "1970-01-01"),
-        type = "candlestick",
-        open = ~ open,
-        close = ~ close,
-        high = ~ high,
-        low = ~ low
-      )
-
-    fig <- fig %>% layout(title = list(text = "BTC-USDT", font = list(color = '#FFF')),
-                          xaxis = list(title = "Date", 
-                                       rangeslider = list(visible = input$rangeSlider)),
-                          paper_bgcolor = dynamic_plot(input$style),
-                          plot_bgcolor = dynamic_plot(input$style))
+    rownames(day_candles) <- as.POSIXct(day_candles$id, origin = "1970-01-01")
+    day_candles <- rename(day_candles, "Volume" = "vol")
+    day_candles <- select(day_candles,
+                          open, high, low, close, Volume)
+    xts_candles <- as.xts(day_candles)
+    chartSeries(xts_candles, name = "cryptotrackr")
+  })
+  
+  output$equity_plot <- renderPlot({
+    equities <- getSymbols(input$equity_symbol, 
+                       from = input$equity_from, 
+                       to = input$equity_to,
+                       periodicity = input$equity_periodicity,
+                       auto.assign=FALSE)
+    
+    chartSeries(equities, name = "quantmod")
+  })
+  
+  output$global <- renderText({
+    global <- coingecko_global_data()
+    global_df <- data.frame(global$market_cap_percentage)
+    other <- 100 - sum(global_df[1,])
+    global_list <- c(global_df[1,], list('other' = other))
+    global_vec <- unlist(global_list)
+    global_vec
   })
 }
