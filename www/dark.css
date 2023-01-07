@@ -1,6 +1,31 @@
 body {
-  /*background-color: #282832;*/
-  background-color: black;
+  background-color: #282832;
+  /*background-color: black;*/
   font-family: 'segoe ui', sans-serif;
+  color: white;
+}
+
+.navbar.navbar-default {
+  background-color: #222222 !important;
+  color: white;
+}
+
+.panel-content {
+  background-color: #222222;
+}
+
+.navbar-light .navbar-brand, .navbar.navbar-default .navbar-brand {
+  color: white;
+}
+
+.card, .well {
+  color: #222222;
+}
+
+ul.nav.navbar-nav>li>a.active {
+  color: white;
+}
+
+ul.nav.navbar-nav>li>a.active {
   color: white;
 }

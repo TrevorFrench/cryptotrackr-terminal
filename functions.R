@@ -10,6 +10,6 @@ dynamic_style <- function(style) {
 
 # GENERATE PLOT DYNAMICALLY
 dynamic_plot <- function(style) {
-  chart_color <- if_else(style == TRUE, "black", "#FFF")
+  chart_color <- if_else(style == TRUE, "black", "white")
   return(chart_color)
 }

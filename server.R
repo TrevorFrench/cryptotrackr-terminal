@@ -8,7 +8,7 @@ library(cryptotrackr)
 #------------------------------------SOURCES------------------------------------
 #-------------------------------------------------------------------------------
 source("functions.R")
-# sourceDir("convertors/")
+# sourceDir("example/")
 
 #-------------------------------------------------------------------------------
 #--------------------------------SERVER FUNCTION--------------------------------
@@ -29,7 +29,7 @@ server <- function(input, output) {
     day_candles <- select(day_candles,
                           open, high, low, close, Volume)
     xts_candles <- as.xts(day_candles)
-    chartSeries(xts_candles, name = "cryptotrackr")
+    chartSeries(xts_candles, name = "cryptotrackr", theme = dynamic_plot(input$style))
   })
   
   output$equity_plot <- renderPlot({
