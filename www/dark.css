@@ -12,6 +12,7 @@ body {
 
 .panel-content {
   background-color: #222222;
+  color: white;
 }
 
 .navbar-light .navbar-brand, .navbar.navbar-default .navbar-brand {
@@ -22,10 +23,10 @@ body {
   color: #222222;
 }
 
-ul.nav.navbar-nav>li>a.active {
+ul.nav.navbar-nav li a.active {
   color: white;
 }
 
-ul.nav.navbar-nav>li>a.active {
+nav li a {
   color: white;
 }

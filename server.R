@@ -20,8 +20,8 @@ server <- function(input, output) {
   
   output$crypto_plot <- renderPlot({
     day_candles <-
-      huobi_candles(period = '1day',
-                    size = '2000',
+      huobi_candles(period = input$crypto_period,
+                    size = input$crypto_results,
                     symbol = input$crypto_symbol)
     
     rownames(day_candles) <- as.POSIXct(day_candles$id, origin = "1970-01-01")
@@ -39,7 +39,7 @@ server <- function(input, output) {
                        periodicity = input$equity_periodicity,
                        auto.assign=FALSE)
     
-    chartSeries(equities, name = "quantmod")
+    chartSeries(equities, name = "quantmod", theme = dynamic_plot(input$style))
   })
   
   output$global <- renderText({

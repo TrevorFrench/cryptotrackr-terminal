@@ -12,12 +12,12 @@ library(gridlayout)
 #-------------------------------------------------------------------------------
 navbarPage(
   title = "cryptotrackr + quantmod",
+  header = uiOutput(outputId = "generatedStyle"),
   selected = "Cryptocurrencies",
   collapsible = TRUE,
   theme = bslib::bs_theme(),
   tabPanel(
     title = "Cryptocurrencies",
-    uiOutput(outputId = "generatedStyle"),
     grid_container(
       layout = "crypto_options crypto_plot",
       row_sizes = "1fr",
@@ -29,17 +29,42 @@ navbarPage(
       grid_card_plot(area = "crypto_plot"),
       grid_card(
         area = "crypto_options",
-        selectInput(
-          inputId = "crypto_symbol",
-          label = "Select a Symbol",
-          choices = list(
-            `BTC - USDT` = "btcusdt",
-            `ETH - BTC` = "ethbtc"
+        # selectInput(
+          # inputId = "crypto_symbol",
+          # label = "Select a Symbol",
+          # choices = list(
+          #   `BTC - USDT` = "btcusdt",
+          #   `ETH - BTC` = "ethbtc"
+          # ),
+          textInput(
+            inputId = "crypto_symbol",
+            label = "Select a Symbol",
+            value = "btcusdt"
+          ),
+          selectInput(
+            inputId = "crypto_period",
+            label = "Choose a Period",
+            choices = list(
+              `1 Minute` = "1min",
+              `5 Minute` = "5min",
+              `15 Minute` = "15min",
+              `30 Minute` = "30min",
+              `60 Minute` = "60min",
+              `4 Hour` = "4hour",
+              `1 Day` = "1day",
+              `1 Week` = "1week",
+              `1 Month` = "1mon",
+              `1 Year` = "1year"
+            )
+          ),
+          textInput(
+            inputId = "crypto_results",
+            label = "Choose the Number of Results to Return (1 - 2000)",
+            value = "2000"
           )
         )
       )
-    )
-  ),
+    ),
   tabPanel(
     title = "Equities",
     grid_container(
