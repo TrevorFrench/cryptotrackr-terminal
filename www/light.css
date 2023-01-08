@@ -11,4 +11,17 @@ body {
 
 .panel-content {
   background-color: #F0F0F0;
+  color: black;
+}
+
+.navbar-light .navbar-brand, .navbar.navbar-default .navbar-brand, .navbar-light:hover .navbar-brand:hover, .navbar.navbar-default:hover .navbar-brand:hover {
+  color: black;
+}
+
+.navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .in>.nav-link, .navbar-light .navbar-nav .nav-tabs>li.show>a, .navbar-light .navbar-nav .nav-tabs>li.in>a, .navbar-light .navbar-nav .nav-pills>li.show>a, .navbar-light .navbar-nav .nav-pills>li.in>a, .navbar.navbar-default .navbar-nav .show>.nav-link, .navbar.navbar-default .navbar-nav .in>.nav-link, .navbar.navbar-default .navbar-nav .nav-tabs>li.show>a, .navbar.navbar-default .navbar-nav .nav-tabs>li.in>a, .navbar.navbar-default .navbar-nav .nav-pills>li.show>a, .navbar.navbar-default .navbar-nav .nav-pills>li.in>a, .navbar-light ul.nav.navbar-nav>li.show>a, .navbar-light ul.nav.navbar-nav>li.in>a, .navbar.navbar-default ul.nav.navbar-nav>li.show>a, .navbar.navbar-default ul.nav.navbar-nav>li.in>a, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-tabs>li>a.active, .navbar-light .navbar-nav .nav-pills>li>a.active, .navbar.navbar-default .navbar-nav .nav-link.active, .navbar.navbar-default .navbar-nav .nav-tabs>li>a.active, .navbar.navbar-default .navbar-nav .nav-pills>li>a.active, .navbar-light ul.nav.navbar-nav>li>a.active, .navbar.navbar-default ul.nav.navbar-nav>li>a.active {
+  color: black;
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-tabs>li>a, .navbar-light .navbar-nav .nav-pills>li>a, .navbar.navbar-default .navbar-nav .nav-link, .navbar.navbar-default .navbar-nav .nav-tabs>li>a, .navbar.navbar-default .navbar-nav .nav-pills>li>a, .navbar-light ul.nav.navbar-nav>li>a, .navbar.navbar-default ul.nav.navbar-nav>li>a {
+  color: black;
 }

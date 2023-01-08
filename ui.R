@@ -29,13 +29,6 @@ navbarPage(
       grid_card_plot(area = "crypto_plot"),
       grid_card(
         area = "crypto_options",
-        # selectInput(
-          # inputId = "crypto_symbol",
-          # label = "Select a Symbol",
-          # choices = list(
-          #   `BTC - USDT` = "btcusdt",
-          #   `ETH - BTC` = "ethbtc"
-          # ),
           textInput(
             inputId = "crypto_symbol",
             label = "Select a Symbol",

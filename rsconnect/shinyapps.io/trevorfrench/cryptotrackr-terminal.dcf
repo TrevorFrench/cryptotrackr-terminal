@@ -5,9 +5,9 @@ account: trevorfrench
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7990415
-bundleId: 6708830
+bundleId: 6709201
 url: https://trevorfrench.shinyapps.io/cryptotrackr-terminal/
-when: 1673135971.64533
-lastSyncTime: 1673135971.64534
+when: 1673151789.59178
+lastSyncTime: 1673151789.59179
 asMultiple: FALSE
 asStatic: FALSE
