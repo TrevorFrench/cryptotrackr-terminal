@@ -21,52 +21,56 @@ navbarPage(
     grid_container(
       layout = "crypto_options crypto_plot",
       row_sizes = "1fr",
-      col_sizes = c(
-        "250px",
-        "1fr"
-      ),
+      col_sizes = c("250px",
+                    "1fr"),
       gap_size = "10px",
       grid_card_plot(area = "crypto_plot"),
       grid_card(
         area = "crypto_options",
-          textInput(
-            inputId = "crypto_symbol",
-            label = "Select a Symbol",
-            value = "btcusdt"
-          ),
-          selectInput(
-            inputId = "crypto_period",
-            label = "Choose a Period",
-            choices = list(
-              `1 Minute` = "1min",
-              `5 Minute` = "5min",
-              `15 Minute` = "15min",
-              `30 Minute` = "30min",
-              `60 Minute` = "60min",
-              `4 Hour` = "4hour",
-              `1 Day` = "1day",
-              `1 Week` = "1week",
-              `1 Month` = "1mon",
-              `1 Year` = "1year"
-            )
-          ),
-          textInput(
-            inputId = "crypto_results",
-            label = "Choose the Number of Results to Return (1 - 2000)",
-            value = "2000"
+        textInput(
+          inputId = "crypto_symbol",
+          label = "Select a Symbol",
+          value = "btcusdt"
+        ),
+        selectInput(
+          inputId = "crypto_period",
+          label = "Choose a Period",
+          choices = list(
+            `1 Minute` = "1min",
+            `5 Minute` = "5min",
+            `15 Minute` = "15min",
+            `30 Minute` = "30min",
+            `60 Minute` = "60min",
+            `4 Hour` = "4hour",
+            `1 Day` = "1day",
+            `1 Week` = "1week",
+            `1 Month` = "1mon",
+            `1 Year` = "1year"
           )
+        ),
+        textInput(
+          inputId = "crypto_results",
+          label = "Choose the Number of Results to Return (1 - 2000)",
+          value = "2000"
+        ),
+        br(),
+        actionBttn(
+          inputId = "show_crypto",
+          label = "DATA POP-OUT", 
+          style = "material-flat",
+          color = "success"
+          # 'arg' should be one of “default”, “primary”, “warning”, “danger”, “success”, “royal”
         )
       )
-    ),
+    )
+  ),
   tabPanel(
     title = "Equities",
     grid_container(
       layout = "area1 equity_plot",
       row_sizes = "1fr",
-      col_sizes = c(
-        "0.44fr",
-        "1.56fr"
-      ),
+      col_sizes = c("0.44fr",
+                    "1.56fr"),
       gap_size = "10px",
       grid_card_plot(area = "equity_plot"),
       grid_card(
@@ -90,6 +94,14 @@ navbarPage(
           inputId = "equity_periodicity",
           label = "Periodicity",
           value = "daily"
+        ),
+        br(),
+        actionBttn(
+          inputId = "show_equity",
+          label = "DATA POP-OUT", 
+          style = "material-flat",
+          color = "success"
+          # 'arg' should be one of “default”, “primary”, “warning”, “danger”, “success”, “royal”
         )
       )
     )
@@ -102,5 +114,5 @@ navbarPage(
       status = "danger",
       value = FALSE
     )
-    )
+  )
 )

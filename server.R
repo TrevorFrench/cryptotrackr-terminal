@@ -18,6 +18,24 @@ server <- function(input, output) {
     dynamic_style(input$style)
   })
   
+  observeEvent(input$show_equity, {
+    showModal(modalDialog(
+      title = "Somewhat important message",
+      "This is a somewhat important message.",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+  })
+  
+  observeEvent(input$show_crypto, {
+    showModal(modalDialog(
+      title = "Somewhat important message",
+      "This is a somewhat important message.",
+      easyClose = TRUE,
+      footer = NULL
+    ))
+  })
+  
   output$crypto_plot <- renderPlot({
     day_candles <-
       huobi_candles(period = input$crypto_period,
