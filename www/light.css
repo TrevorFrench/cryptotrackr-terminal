@@ -18,6 +18,15 @@ body {
   color: black;
 }
 
+.modal-content {
+  color: black;
+}
+
+
+.card, .well {
+  border: 1px solid rgba(0,0,0,0.125);
+}
+
 .navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .in>.nav-link, .navbar-light .navbar-nav .nav-tabs>li.show>a, .navbar-light .navbar-nav .nav-tabs>li.in>a, .navbar-light .navbar-nav .nav-pills>li.show>a, .navbar-light .navbar-nav .nav-pills>li.in>a, .navbar.navbar-default .navbar-nav .show>.nav-link, .navbar.navbar-default .navbar-nav .in>.nav-link, .navbar.navbar-default .navbar-nav .nav-tabs>li.show>a, .navbar.navbar-default .navbar-nav .nav-tabs>li.in>a, .navbar.navbar-default .navbar-nav .nav-pills>li.show>a, .navbar.navbar-default .navbar-nav .nav-pills>li.in>a, .navbar-light ul.nav.navbar-nav>li.show>a, .navbar-light ul.nav.navbar-nav>li.in>a, .navbar.navbar-default ul.nav.navbar-nav>li.show>a, .navbar.navbar-default ul.nav.navbar-nav>li.in>a, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-tabs>li>a.active, .navbar-light .navbar-nav .nav-pills>li>a.active, .navbar.navbar-default .navbar-nav .nav-link.active, .navbar.navbar-default .navbar-nav .nav-tabs>li>a.active, .navbar.navbar-default .navbar-nav .nav-pills>li>a.active, .navbar-light ul.nav.navbar-nav>li>a.active, .navbar.navbar-default ul.nav.navbar-nav>li>a.active {
   color: black;
 }

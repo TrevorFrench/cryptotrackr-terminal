@@ -6,6 +6,7 @@ library(plotly)
 library(shinyWidgets)
 library("quantmod")
 library(gridlayout)
+library(shinyBS)
 
 #-------------------------------------------------------------------------------
 #----------------------------------UI FUNCTION----------------------------------
@@ -54,13 +55,8 @@ navbarPage(
           value = "2000"
         ),
         br(),
-        actionBttn(
-          inputId = "show_crypto",
-          label = "DATA POP-OUT", 
-          style = "material-flat",
-          color = "success"
-          # 'arg' should be one of “default”, “primary”, “warning”, “danger”, “success”, “royal”
-        )
+        actionButton("show_crypto", "Show Table", icon = icon("table")),
+        downloadButton("download_crypto", "Download Plot")
       )
     )
   ),
@@ -69,8 +65,8 @@ navbarPage(
     grid_container(
       layout = "area1 equity_plot",
       row_sizes = "1fr",
-      col_sizes = c("0.44fr",
-                    "1.56fr"),
+      col_sizes = c("250px",
+                    "1fr"),
       gap_size = "10px",
       grid_card_plot(area = "equity_plot"),
       grid_card(
@@ -96,13 +92,8 @@ navbarPage(
           value = "daily"
         ),
         br(),
-        actionBttn(
-          inputId = "show_equity",
-          label = "DATA POP-OUT", 
-          style = "material-flat",
-          color = "success"
-          # 'arg' should be one of “default”, “primary”, “warning”, “danger”, “success”, “royal”
-        )
+        actionButton("show_equity", "Show Table", icon = icon("table")),
+        downloadButton("download_equity", "Download Plot")
       )
     )
   ),
