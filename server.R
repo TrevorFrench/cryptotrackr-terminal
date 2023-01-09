@@ -8,7 +8,6 @@ library(cryptotrackr)
 #------------------------------------SOURCES------------------------------------
 #-------------------------------------------------------------------------------
 source("functions.R")
-# sourceDir("example/")
 
 #-------------------------------------------------------------------------------
 #--------------------------------SERVER FUNCTION--------------------------------
@@ -99,7 +98,9 @@ server <- function(input, output) {
     return(equities)
   }
   equity_plot = function() {
-    chartSeries(equity_data(), name = "quantmod", theme = dynamic_plot(input$style))
+    chartSeries(equity_data(),
+                name = "quantmod",
+                theme = dynamic_plot(input$style))
   }
   output$download_equity = downloadHandler(
     filename = 'equity_plot.jpg',
