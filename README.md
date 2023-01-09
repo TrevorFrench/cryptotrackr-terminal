@@ -1,9 +1,15 @@
--   talk about how to create an xts object and pass it into quantmod from cryptotrackr
+# cryptotrackr + quantmod
 
--   add global metrics
+This shiny app demonstrates how to leverage quantmod and Shiny to visualize cryptotrackr data along with equities data.
 
--   color scheme on action buttons (maybe just use action button and not the shiny widget)
+## Action List
 
--   maybe hr on options picker
+-   Document how to create an xts object and pass it into quantmod from cryptotrackr
 
--   equity periodicity select
+-   Add global metrics tab
+
+-   Color scheme on style switch
+
+-   Make select inputs where applicable
+
+-   Modular server functions

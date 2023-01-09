@@ -1,4 +1,8 @@
-# GENERATE STYLE DYNAMICALLY
+#-------------------------------------------------------------------------------
+#--------------------------------DYNAMIC STYLES---------------------------------
+#-------------------------------------------------------------------------------
+
+# GENERATE STYLESHEET DYNAMICALLY
 dynamic_style <- function(style) {
   sheet <- if_else(style == TRUE, "dark", "light")
   return(tags$head(tags$link(
@@ -8,7 +12,7 @@ dynamic_style <- function(style) {
   )))
 }
 
-# GENERATE PLOT DYNAMICALLY
+# GENERATE PLOT STYLE DYNAMICALLY
 dynamic_plot <- function(style) {
   chart_color <- if_else(style == TRUE, "black", "white")
   return(chart_color)
